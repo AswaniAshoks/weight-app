@@ -25,7 +25,6 @@ alert("Invalid Login")
 }
 
 }
-
 return(
 
 <div className="container">
@@ -37,19 +36,13 @@ placeholder="Username"
 onChange={(e)=>setUsername(e.target.value)}
 />
 
-<br/>
-
 <input
 type="password"
 placeholder="Password"
 onChange={(e)=>setPassword(e.target.value)}
 />
 
-<br/>
-
-<button onClick={handleLogin}>
-Login
-</button>
+<button onClick={handleLogin}>Login</button>
 
 <p>
 Don't have an account? <Link to="/signup">Signup here</Link>
@@ -58,6 +51,8 @@ Don't have an account? <Link to="/signup">Signup here</Link>
 </div>
 
 )
+
+
 
 }
 

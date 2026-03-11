@@ -1,0 +1,104 @@
+/* Page background */
+body{
+font-family: Arial, Helvetica, sans-serif;
+background: linear-gradient(135deg,#6dd5ed,#2193b0);
+margin:0;
+padding:0;
+}
+
+/* Center container */
+.container{
+width:350px;
+margin:120px auto;
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+/* Inputs */
+input{
+width:90%;
+padding:10px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:14px;
+}
+
+/* Buttons */
+button{
+padding:10px 15px;
+background:#2193b0;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+margin-top:10px;
+}
+
+button:hover{
+background:#176d82;
+}
+
+/* Dashboard layout */
+.dashboard{
+width:80%;
+margin:auto;
+margin-top:40px;
+text-align:center;
+}
+
+/* Weight form card */
+.card{
+background:white;
+padding:20px;
+border-radius:10px;
+margin-bottom:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Table design */
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+border-radius:10px;
+overflow:hidden;
+}
+
+th{
+background:#2193b0;
+color:white;
+padding:12px;
+}
+
+td{
+padding:10px;
+border-bottom:1px solid #eee;
+}
+
+/* Pagination buttons */
+.pagination{
+margin-top:15px;
+}
+
+.page-btn{
+padding:8px 12px;
+margin:5px;
+background:#6dd5ed;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.page-btn:hover{
+background:#2193b0;
+color:white;
+}
+
+/* Logout button */
+.logout{
+background:#ff4d4d;
+}
