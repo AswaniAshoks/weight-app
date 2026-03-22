@@ -1,55 +1,65 @@
 import { useState } from "react"
 
-function WeightForm(){
+function WeightForm({ refreshData }) {
 
-const [weight,setWeight]=useState("")
+const [weight, setWeight] = useState("")
 
-const addWeight=()=>{
+const addWeight = () => {
 
-let weights = JSON.parse(localStorage.getItem("weights")) || []
-
-const today = new Date().toLocaleDateString()
-
-const alreadyAdded = weights.find(
-(w)=> w.date===today
-)
-
-if(alreadyAdded){
-alert("You already added weight today")
+if (!weight) {
+alert("Enter weight")
 return
 }
 
-const newWeight={
-weight,
-date:today,
-time:new Date().toLocaleTimeString()
+let data = JSON.parse(localStorage.getItem("weights")) || []
+
+let now = new Date()
+
+// ✅ dd/mm/yyyy
+let day = String(now.getDate()).padStart(2, "0")
+let month = String(now.getMonth() + 1).padStart(2, "0")
+let year = now.getFullYear()
+
+let date = `${day}/${month}/${year}`
+
+// one entry per day
+let exists = data.find(item => item.date === date)
+
+if (exists) {
+alert("Already added today")
+return
 }
 
-weights.push(newWeight)
+let time = now.toLocaleTimeString()
 
-localStorage.setItem("weights",JSON.stringify(weights))
+data.push({
+weight,
+date,
+time
+})
 
-window.location.reload()
+localStorage.setItem("weights", JSON.stringify(data))
+
+setWeight("")
+refreshData()
 
 }
 
 return(
-
-<div>
+<div style={{marginBottom:"20px"}}>
 
 <h3>Add Weight</h3>
 
 <input
-placeholder="Enter Weight"
+type="number"
+value={weight}
 onChange={(e)=>setWeight(e.target.value)}
+placeholder="Enter weight"
 />
 
-<button onClick={addWeight}>
-Add
-</button>
+<button onClick={addWeight}>Add</button>
 
 </div>
-
 )
 
 }

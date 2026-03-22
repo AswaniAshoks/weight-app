@@ -1,32 +1,34 @@
 import WeightForm from "./WeightForm"
 import WeightList from "./WeightList"
 import { useNavigate } from "react-router-dom"
+import { useState } from "react"
 
 function Dashboard(){
 
 const navigate = useNavigate()
+const [refresh, setRefresh] = useState(false)
 
-const logout=()=>{
+const logout = () => {
 localStorage.removeItem("loggedIn")
 navigate("/")
 }
 
-return(
+const refreshData = () => {
+setRefresh(!refresh)
+}
 
-<div>
+return(
+<div style={{padding:"20px"}}>
 
 <h2>Weight Dashboard</h2>
 
-<button onClick={logout}>
-Logout
-</button>
+<button onClick={logout}>Logout</button>
 
-<WeightForm/>
+<WeightForm refreshData={refreshData} />
 
-<WeightList/>
+<WeightList refresh={refresh} />
 
 </div>
-
 )
 
 }
